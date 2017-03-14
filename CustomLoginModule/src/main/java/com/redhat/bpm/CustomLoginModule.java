@@ -23,10 +23,13 @@ public class CustomLoginModule extends UsernamePasswordLoginModule {
 	public static final String ROLES_GROUP_NAME = "Roles";
 	public static final String GROUP_NAME1 = "admin";
 	public static final String GROUP_NAME2 = "analyst";
-	
+	public static final String GROUP_NAME3 = "kie-server";
+	public static final String GROUP_NAME4 = "kiemgmt";
+	public static final String GROUP_NAME5 = "rest-all";
+		
 	public static final String USER_NAME = "redhat";
 	public static final String USER_PWD = "redhatPwd";
-
+	
 	
 	/** Create the set of roles the user belongs to 
 	  @return Group[] containing the sets of roles 
@@ -39,18 +42,42 @@ public class CustomLoginModule extends UsernamePasswordLoginModule {
 	    groups.add(rolesGroup);
 	    try {
 			rolesGroup.addMember(createIdentity(GROUP_NAME1));
-		} catch (Exception e1) {
+		} catch (Exception exc) {
 			logger.error("$$ Caution: cannot add '"+GROUP_NAME1+"' to group '"+rolesGroup.getName()+"'");
 		}
 	    try {
 			rolesGroup.addMember(createIdentity(GROUP_NAME2));
-		} catch (Exception e1) {
+		} catch (Exception exc) {
 			logger.error("$$ Caution: cannot add '"+GROUP_NAME2+"' to group '"+rolesGroup.getName()+"'");
 		}
+	    try {
+			rolesGroup.addMember(createIdentity(GROUP_NAME3));
+		} catch (Exception exc) {
+			logger.error("$$ Caution: cannot add '"+GROUP_NAME3+"' to group '"+rolesGroup.getName()+"'");
+		}
+	    try {
+			rolesGroup.addMember(createIdentity(GROUP_NAME4));
+		} catch (Exception exc) {
+			logger.error("$$ Caution: cannot add '"+GROUP_NAME3+"' to group '"+rolesGroup.getName()+"'");
+		}
+	    try {
+			rolesGroup.addMember(createIdentity(GROUP_NAME5));
+		} catch (Exception exc) {
+			logger.error("$$ Caution: cannot add '"+GROUP_NAME3+"' to group '"+rolesGroup.getName()+"'");
+		}
+	    
+	    
+	    
 	    Group group1 = new SimpleGroup(GROUP_NAME1);
 	    groups.add(group1);
 	    Group group2 = new SimpleGroup(GROUP_NAME2);
-	    groups.add(group2);	    
+	    groups.add(group2);
+	    Group group3 = new SimpleGroup(GROUP_NAME3);
+	    groups.add(group3);
+	    Group group4 = new SimpleGroup(GROUP_NAME4);
+	    groups.add(group4);
+	    Group group5 = new SimpleGroup(GROUP_NAME5);
+	    groups.add(group5);
 	    
 	    try {
 	    	group1.addMember(createIdentity(USER_NAME));
@@ -62,6 +89,24 @@ public class CustomLoginModule extends UsernamePasswordLoginModule {
 	    	group2.addMember(createIdentity(USER_NAME));
 		} catch (Exception e) {
 			logger.error("$$ Caution: cannot add user '"+USER_NAME+"' to group '"+group2.getName()+"'");
+		}
+	    
+	    try {
+	    	group3.addMember(createIdentity(USER_NAME));
+		} catch (Exception e) {
+			logger.error("$$ Caution: cannot add user '"+USER_NAME+"' to group '"+group3.getName()+"'");
+		}
+	    
+	    try {
+	    	group4.addMember(createIdentity(USER_NAME));
+		} catch (Exception e) {
+			logger.error("$$ Caution: cannot add user '"+USER_NAME+"' to group '"+group4.getName()+"'");
+		}
+	    
+	    try {
+	    	group5.addMember(createIdentity(USER_NAME));
+		} catch (Exception e) {
+			logger.error("$$ Caution: cannot add user '"+USER_NAME+"' to group '"+group5.getName()+"'");
 		}
 	    
 	    Group[] roleSets = new Group[groups.size()];

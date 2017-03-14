@@ -32,7 +32,8 @@ public class CustomUserGroupCallback implements UserGroupCallback {
      */
     public boolean existsUser(String userId) {
         logger.info("$$ Does user '"+userId+"' exist?");
-        return USER_NAME.equals(userId);
+//        return USER_NAME.equals(userId);
+        return true;
     }
 
     /**
@@ -42,7 +43,8 @@ public class CustomUserGroupCallback implements UserGroupCallback {
      */
     public boolean existsGroup(String groupId) {
         logger.info("$$ Does group '"+groupId+"' exist?");
-    	return (GROUP_NAME1.equals(groupId) || GROUP_NAME2.equals(groupId));
+//    	return (GROUP_NAME1.equals(groupId) || GROUP_NAME2.equals(groupId));
+        return true;
     }
 
     /**
@@ -55,7 +57,7 @@ public class CustomUserGroupCallback implements UserGroupCallback {
     public List<String> getGroupsForUser(String userId, List<String> groupIds, List<String> allExistingGroupIds) {
     	logger.info("$$ Getting groups for user '"+userId+"', groupIds="+groupIds.toString()+", and allExistingGroupIds="+allExistingGroupIds.toString());
     	List<String> res = new ArrayList<String>();
-
+    	
         if (USER_NAME.equals(userId)) {
             res.add(GROUP_NAME1);
             res.add(GROUP_NAME2);
